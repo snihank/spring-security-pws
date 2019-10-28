@@ -24,33 +24,24 @@ To test or use this application, open your terminal in Mac or command prompt/git
 
 ## Postman
 Open postman and try the following end points with "localhost:8081":
-username: adminUser, password: admin
-username: managerUser, password: manager
-username: staffUser, password: staff
+* username: adminUser, password: admin, 
+* username: managerUser, password: manager
+* username: staffUser, password: staff
 
 * Login endpoint: /login
 * Logout endpoint: /logout, /allDone
 
 * GET:
-/console, /console/{id}
-/game, /game/{id}
-/tshirt, /tshirt/{id}
+/console, /console/{id}, /game, /game/{id}, /tshirt, /tshirt/{id}
 
 * POST: Only Manager and Admin
-/console
-/game
-/invoice
-/tshirt
+/console, /game, /invoice, /tshirt
 
 * PUT: Staff, Manager and Admin
-/console
-/game
-/tshirt
+/console, /game, /tshirt
 
 * DELETE: Admin
-/console/{id}
-/game/{id}
-/tshirt/{id}
+/console/{id}, /game/{id}, /tshirt/{id}
 
 
 
