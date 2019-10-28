@@ -1,0 +1,621 @@
+openapi: 3.0.0
+info:
+  title: "Capstone 1"
+  description: >-
+    A simple web-service for game store
+  version: "0.0.1"
+servers:
+  - url: 'http://localhost:8081'
+    description: "Local dev server"
+paths:
+  /console/{id}:
+    get:
+      summary: "Retrieves single console based on consoleId"
+      description: "consoleId is primary key"
+      parameters: 
+        - name: "id"
+          in: "path"
+          required: true
+          description: "consoleId to retrieve a single console" 
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      responses:
+        '200':
+          description: "An object of console"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Console'
+  /consoles:
+    get:
+      summary: "Retrieves list of all consoles"
+      responses:
+        '200':
+          description: "A list of consoles"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items: 
+                  $ref: '#/components/schemas/Console'
+  /console:
+    post:
+      summary: "Creates single console based on consoleId"
+      description: "consoleId is primary key"
+      parameters: 
+        - name: "Id"
+          in: "path"
+          required: true
+          description: "consoleId to create a console"
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Console'
+      responses:
+        '200':
+          description: "An object of console"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Console'
+
+    put:
+      summary: "Updates a single console based on id"
+      description: "consoleId is primary key"
+      parameters: 
+        - name: "id"
+          in: "path"
+          required: true
+          description: "consoleId for a specific console"
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Console'
+      responses:
+        '200':
+          description: "An object of console"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Console'
+    delete:
+      summary: "Deletes a single console based on id"
+      description: "consoleId is primary key"
+      parameters: 
+        - name: "id"
+          in: "path"
+          required: true
+          description: "consoleId for a specific console"
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      responses:
+        '200':
+          description: "A message"
+          content:
+            application/json:
+              schema:
+                type: "string"
+                items: 
+                  $ref: '#/components/schemas/Console'
+  /console/manufacturer/{manufacturer}:
+    get:
+      summary: "Retrieves a list of consoles based on manufacturer"
+      description: "manufacturer is an attibute of type string"
+      parameters: 
+        - name: "manufacturer"
+          in: "path"
+          required: true
+          description: "manufacturer required to retrieve a list of consoles based on manufacturer"
+          schema:
+            type: "string"
+            # format: int64
+            # minimum: 1
+            # maximum: 11
+      responses:
+        '200':
+          description: "An list of consoles"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Console'
+  /game/{id}:
+    get:
+      summary: "Retrieves single game based on gameId"
+      description: "gameId is primary key"
+      parameters: 
+        - name: "id"
+          in: "path"
+          required: true
+          description: "gameId to retrieve a single game" 
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      responses:
+        '200':
+          description: "An object of game"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Game'
+  /games:
+    get:
+      summary: "Retrieves list of all games"
+      responses:
+        '200':
+          description: "A list of games"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items: 
+                  $ref: '#/components/schemas/Game'
+  /game:
+    post:
+      summary: "Creates single game based on gameId"
+      description: "gameId is primary key"
+      parameters: 
+        - name: "Id"
+          in: "path"
+          required: true
+          description: "gameId to create a console"
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Game'
+      responses:
+        '200':
+          description: "An object of game"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Game'
+
+    put:
+      summary: "Updates a single game based on id"
+      description: "gameId is primary key"
+      parameters: 
+        - name: "id"
+          in: "path"
+          required: true
+          description: "gameId for a specific console"
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Game'
+      responses:
+        '200':
+          description: "An object of console"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Game'
+    delete:
+      summary: "Deletes a single game based on id"
+      description: "gameId is primary key"
+      parameters: 
+        - name: "id"
+          in: "path"
+          required: true
+          description: "gameId for a specific console"
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      responses:
+        '200':
+          description: "A message"
+          content:
+            application/json:
+              schema:
+                type: "string"
+                items: 
+                  $ref: '#/components/schemas/Game'
+  /game/title/{title}:
+    get:
+      summary: "Retrieves a list of games based on title"
+      description: "title is an attibute of type string"
+      parameters: 
+        - name: "title"
+          in: "path"
+          required: true
+          description: "title required to retrieve a list of games based on title"
+          schema:
+            type: "string"
+            # format: int64
+            # minimum: 1
+            # maximum: 11
+      responses:
+        '200':
+          description: "An list of games"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Game'
+  /game/studio/{studio}:
+    get:
+      summary: "Retrieves a list of games based on studio"
+      description: "studio is an attibute of type string"
+      parameters: 
+        - name: "studio"
+          in: "path"
+          required: true
+          description: "studio required to retrieve a list of games based on title"
+          schema:
+            type: "string"
+            # format: int64
+            # minimum: 1
+            # maximum: 11
+      responses:
+        '200':
+          description: "An list of games"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Game'
+  /game/ersb/{ersb_rating}:
+    get:
+      summary: "Retrieves a list of games based on ersb_rating"
+      description: "ersb_rating is an attibute of type string"
+      parameters: 
+        - name: "ersb_rating"
+          in: "path"
+          required: true
+          description: "ersb_rating required to retrieve a list of games based on title"
+          schema:
+            type: "string"
+            # format: int64
+            # minimum: 1
+            # maximum: 11
+      responses:
+        '200':
+          description: "An list of games"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Game'
+  /invoice:
+    post:
+      summary: "Creates an invoice"
+      description: "invoice"
+      # parameters: 
+      #   - name: 
+      #     in: 
+      #     required: false
+      #     description: "gameId to create a console"
+      #     schema:
+      #       type: "object"
+            # format: int64
+            # minimum: 1
+            # maximum: 11
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderViewModel'
+      responses:
+        '200':
+          description: "An object of object"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Invoice'
+  /tshirt/{id}:
+    get:
+      summary: "Retrieves single tshirt based on tShirtId"
+      description: "tShirtId is primary key"
+      parameters: 
+        - name: "id"
+          in: "path"
+          required: true
+          description: "tShirtId to retrieve a single tShirt" 
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      responses:
+        '200':
+          description: "An object of tShirt"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Tshirt'
+  /tshirt:
+    get:
+      summary: "Retrieves list of all tshirts"
+      responses:
+        '200':
+          description: "A list of tshirts"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items: 
+                  $ref: '#/components/schemas/Tshirt'
+    post:
+      summary: "Creates single tshirt based on tShirtId"
+      description: "tShirtId is primary key"
+      parameters: 
+        - name: "Id"
+          in: "path"
+          required: true
+          description: "tShirtId to create a tShirt"
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tshirt'
+      responses:
+        '200':
+          description: "An object of tShirt"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Tshirt'
+
+    put:
+      summary: "Updates a single tShirt based on tShirtId"
+      description: "tShirtId is primary key"
+      parameters: 
+        - name: "id"
+          in: "path"
+          required: true
+          description: "tShirtId for a specific tShirt"
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tshirt'
+      responses:
+        '200':
+          description: "An object of tShirt"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                items: 
+                  $ref: '#/components/schemas/Tshirt'
+    delete:
+      summary: "Deletes a single tShirt based on tShirtId"
+      description: "tShirtId is primary key"
+      parameters: 
+        - name: "id"
+          in: "path"
+          required: true
+          description: "tShirtId for a specific tShirt"
+          schema:
+            type: "number"
+            format: int64
+            minimum: 1
+            maximum: 11
+      responses:
+        '200':
+          description: "A message"
+          content:
+            application/json:
+              schema:
+                type: "string"
+                items: 
+                  $ref: '#/components/schemas/Tshirt'
+    
+  
+components:
+  schemas:
+    Console:
+      type: "object"
+      properties:
+        consoleId:
+          type: "number"
+        model:
+          type: "string"
+        manufacturer:
+          type: "string"
+        memoryAmount:
+          type: "string"
+        processor:
+          type: "string"
+        price:
+          type: "integer"
+        quantity:
+          type: "integer"
+      required:
+        - "model"
+        - "manufacturer"
+        - "memoryAmount"
+        - "processor"
+        - "price"
+
+    Game:
+      properties:
+        gameId:
+          type: "number"
+        title:
+          type: "string"
+        ersbRating:
+          type: "string"
+        description:
+          type: "string"
+        price:
+          type: "integer"
+        studio:
+          type: "string"
+        quantity:
+          type: "integer"
+      required:
+        - "title"
+        - "ersbRating"
+        - "description"
+        - "price"
+        - "studio"
+
+        
+    Invoice:
+      properties:
+        invoiceId:
+          type: "number"
+        name:
+          type: "string"
+        street:
+          type: "string"
+        city:
+          type: "string"
+        state:
+          type: "string"
+        zipCode:
+          type: "string"
+        itemType:
+          type: "string"
+        itemId:
+          type: "number"
+        unitPrice:
+          type: "integer"
+        quantity:
+          type: "integer"
+        subTotal:
+          type: "integer"
+        tax:
+          type: "integer"
+        processingFee:
+          type: "integer"
+        total:
+          type: "integer"
+      required: 
+        - "name"
+        - "street"
+        - "city"
+        - "state"
+        - "zipCode"
+        - "itemType"
+        - "itemId"
+        - "unitPrice"
+        - "quantity"
+        - "subTotal"
+        - "tax"
+        - "processingFee"
+        - "total"
+
+    OrderViewModel:
+      properties:
+        invoiceId:
+          type: "number"
+        name:
+          type: "string"
+        street:
+          type: "string"
+        city:
+          type: "string"
+        state:
+          type: "string"
+        zipCode:
+          type: "string"
+        itemType:
+          type: "string"
+        itemId:
+          type: "number"
+        quantity:
+          type: "integer"
+      required:
+        - "name"
+        - "street"
+        - "city"
+        - "state"
+        - "zipCode"
+        - "itemType"
+        - "itemId"
+        - "quantity"
+        
+    Tshirt:
+      properties:
+        tShirtId:
+          type: "number"
+        size:
+          type: "string"
+        color:
+          type: "string"
+        description:
+          type: "string"
+        price:
+          type: "integer"
+        quantity:
+          type: "integer"
+      required:
+        - "size"
+        - "color"
+        - "description"
+    
