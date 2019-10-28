@@ -34,14 +34,11 @@ Open postman and try the following end points with "localhost:8081":
 * GET:
 /console, /console/{id}, /game, /game/{id}, /tshirt, /tshirt/{id}
 
-* POST: Only Manager and Admin
-/console, /game, /invoice, /tshirt
+* POST: Manager and Admin : /console, /game, /invoice, /tshirt
 
-* PUT: Staff, Manager and Admin
-/console, /game, /tshirt
+* PUT: Staff, Manager and Admin : /console, /game, /tshirt
 
-* DELETE: Admin
-/console/{id}, /game/{id}, /tshirt/{id}
+* DELETE: Admin : /console/{id}, /game/{id}, /tshirt/{id}
 
 
 
